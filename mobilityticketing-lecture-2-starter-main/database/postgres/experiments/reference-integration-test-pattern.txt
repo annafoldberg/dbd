@@ -1,0 +1,14 @@
+[Theory]
+[InlineData("23514", "check_violation")]
+[InlineData("23503", "foreign_key_violation")]
+[InlineData("23505", "unique_violation")]
+public void PostgreSql_error_codes_are_stable_for_automated_feedback(
+    string sqlState,
+    string expectedMeaning)
+{
+    Assert.False(string.IsNullOrWhiteSpace(sqlState));
+    Assert.False(string.IsNullOrWhiteSpace(expectedMeaning));
+}
+
+Actual tests should execute the invalid write and assert PostgresException.SqlState.
+Matching an English error message is brittle and language-dependent.
