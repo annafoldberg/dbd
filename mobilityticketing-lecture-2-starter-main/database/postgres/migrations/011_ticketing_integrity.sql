@@ -97,4 +97,6 @@ commit;
 
 -- I have generally not implemented constraints that I have identified personally
 -- but instead remained focused on implementing the minimum invariants to consider
--- together with the constraints specified in the TODO
+-- together with the constraints specified in the TODO.
+
+-- validations.ticket_code is not unique because the same ticket may be validated multiple times.
