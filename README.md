@@ -23,7 +23,9 @@ We should understand how the current implementation performs with many database 
 
 `011_ticketing_integrity.sql` contains the implementation of constraints.  
 
-The `dossier.md` contains the analysis, decisions, and evidence for `lab.md`.
+The `dossier.md` contains the analysis, decisions, and evidence for `lab.md`.  
+
+Images of test results are found under `docs/figures`.
 
 #### Decision worth discussing  
 Should it be possible to validate a ticket multiple times?
@@ -52,22 +54,23 @@ The `dossier.md` contains the experiments, analysis, and decisions for `lab.md`.
 
 ### [Lecture 4](https://github.com/annafoldberg/dbd/tree/main/mobilityticketing-lecture-4-starter-main)
 
+Each sql file under `experiments/lecture04` and `migrations`, respectively, contains its relevant extensions according to the exercise.  
+
+The `dossier.md` contains the analysis, experiments, and evidence for `lab.md`.  
+
 #### Decisions worth discussing
+Should a mismatch between `product_code` and `product_id` in tickets be ignored or rejected in the new writer?
 
 <b>What did I choose?</b>  
+I chose to ignore the supplied `product_code` and always use the code looked up from `product_id`.
 
 <b>What was the alternative?</b>  
+I could have chosen to reject the insert when the supplied `product_code` does not match the product identified by `product_id`.
 
 <b>Why does my choice fit MobilityTicketing?</b>  
+During the transition from `product_code` to `product_id`, it is important that the system continues to operate smoothly for operators and customers. By treating `product_id` as authoritative and looking up the corresponding code, the writer ensures that a mismatched code supplied by the caller cannot result in inconsistent references being stored. The alternative of rejecting the write would expose the inconsistency, which is also important but can be handled by implementing logging mechanisms.
 
 <b>Which file or result supports it?</b>  
-
-#### Limitation or open question
-
-<b>What does our implementation not guarantee, or what are we still unsure about?</b>
-
-<b>Relevant evidence</b>
-
-<b>What should we check next?</b>
+`new_writer.sql`.
 
 ---
