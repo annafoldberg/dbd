@@ -6,9 +6,11 @@ Each sql file contains its relevant extensions according to the exercise.
 
 Within the `dossier.md` are discussions, models, and evidence.
 
+Setup and reset instructions can be found within the `README.md`.
+
 #### Limitation or open question
 
-<b>What does our implementation not guarantee, or what are we still unsure about?</b>
+<b>What does our implementation not guarantee, or what are we still unsure about?</b>  
 We are still unsure about performance with many database records.
 
 <b>Relevant evidence</b>  
@@ -26,6 +28,8 @@ We should understand how the current implementation performs with many database 
 The `dossier.md` contains the analysis, decisions, and evidence for `lab.md`.  
 
 Images of test results are found under `docs/figures`.
+
+Setup and reset instructions can be found within the `README.md`.
 
 #### Decision worth discussing  
 Should it be possible to validate a ticket multiple times?
@@ -50,6 +54,8 @@ Each sql file under migrations contains its relevant extensions according to the
 
 The `dossier.md` contains the experiments, analysis, and decisions for `lab.md`.
 
+Setup and reset instructions can be found within the `README.md`.
+
 ---
 
 ### [Lecture 4](https://github.com/annafoldberg/dbd/tree/main/mobilityticketing-lecture-4-starter-main)
@@ -57,6 +63,8 @@ The `dossier.md` contains the experiments, analysis, and decisions for `lab.md`.
 Each sql file under `experiments/lecture04` and `migrations`, respectively, contains its relevant extensions according to the exercise.  
 
 The `dossier.md` contains the analysis, experiments, and evidence for `lab.md`.  
+
+Setup and reset instructions can be found within the `README.md`.
 
 #### Decisions worth discussing
 Should a mismatch between `product_code` and `product_id` in tickets be ignored or rejected in the new writer?
