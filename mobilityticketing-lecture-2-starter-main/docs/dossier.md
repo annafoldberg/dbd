@@ -70,11 +70,31 @@ Number marks the invariant classification:
 3: Cross-row or external workflow rule  
 4: Unresolved domain decision
 
+## Two important rules
+### Rule 1: Reserved seats cannot exceed capacity
+Valid write: setting `reserved_seats` to a value within `capacity` succeeds.  
+<img src="figures/reserved-seats-valid.png" alt="Valid reserved seats" width="100">
+
+Rejected write: setting `reserved_seats` greater than `capacity` fails.  
+![Rejected reserved seats](figures/reserved-seats-failure.png)
+
+Enforced by `trips_reserved_seats_valid`.
+
+### Rule 2: A payment must reference an existing ticket
+Valid write: inserting a payment with an existing `ticket_id` succeeds.  
+<img src="figures/payment-ticket-valid.png" alt="Valid payment ticket" width="100">
+
+
+Rejected write: inserting a payment with an unknown `ticket_id` fails.  
+![Rejected payment ticket](figures/payment-ticket-failure.png)
+
+Enforced by `payments_ticket_fk`.
+
 ## Issue register
 
 ### Issue 1: Overselling
 
-- Evidence: There are no constraints preventing reserved_seats to be greater than capacity
+- Evidence: The original schema contains no constraints preventing reserved_seats to be greater than capacity
 - Problem: A trip can have more reserved seats than available capacity
 - Consequence: A trip might be oversold.
 - Specific improvement: Check ensuring reserved_seats between 0 and capacity.

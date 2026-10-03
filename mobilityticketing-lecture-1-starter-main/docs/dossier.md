@@ -27,6 +27,9 @@ A functional dependency in the trips table is id --> route_id, service_date, sch
 
 Normalization prevents route information, such as operator_id, city_id, and short_name, from being repeated for every trip, by storing this information once in routes and letting each trip reference its route through route_id.
 
+### Explain how a query uses the model
+The ordered-stops query uses the relationship between `route_stops` and `stops`. `route_stops` links each route to its stops through `route_id` and `stop_id`, while `stop_sequence` represents the position of each stop along the route.
+
 ### State what the implementation proves and what remains unknown
 The implementation proves that the schema is applied correctly, seed data can be loaded more than once, and queries return the expected results. Performance with many database records remains unknown.
 
